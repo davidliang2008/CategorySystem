@@ -1,4 +1,5 @@
 ﻿using DL.CategorySystem.Persistence.EFCore;
+using DL.CategorySystem.Web.UI.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,8 @@ namespace DL.CategorySystem.Web.UI
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(dbConnectionString, optionsBuilder => 
                     optionsBuilder.MigrationsAssembly(assemblyName)));
+
+            services.AddMediatRService();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

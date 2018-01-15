@@ -16,6 +16,8 @@ namespace DL.CategorySystem.Domain.Categories
 
         public IEnumerable<Category> Childen { get; private set; }
 
+        private Category() { }
+
         public Category(string name, string slug, int ordinal, IEnumerable<Category> children = null)
         {
             // TODO: validation

@@ -1,0 +1,14 @@
+﻿@model IEnumerable<DL.CategorySystem.Reporting.Categories.CategoryViewModel>
+
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var c in Model)
+        {
+            <li>
+                <a href="#">@c.Name</a>
+                @Html.Partial("_CategoryMenuListPartial", c.Children)
+            </li>
+        }
+    </ul>
+}

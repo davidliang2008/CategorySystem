@@ -1,7 +1,9 @@
-﻿
+﻿@model IEnumerable<DL.CategorySystem.Reporting.Categories.CategoryViewModel>
 @{
     ViewData["Title"] = "Home";
 }
 
 <h2>Home</h2>
+
+@Html.Partial("_CategoryMenuListPartial", Model)
 
