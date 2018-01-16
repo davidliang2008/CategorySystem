@@ -1,5 +1,6 @@
 ﻿using DL.CategorySystem.Framework.Domain;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DL.CategorySystem.Domain.Categories
 {
@@ -25,7 +26,7 @@ namespace DL.CategorySystem.Domain.Categories
             this.Slug = slug;
             this.Ordinal = ordinal;
             this.Visible = true;
-            this.Childen = children;
+            this.Childen = children ?? Enumerable.Empty<Category>();
         }
     }
 }

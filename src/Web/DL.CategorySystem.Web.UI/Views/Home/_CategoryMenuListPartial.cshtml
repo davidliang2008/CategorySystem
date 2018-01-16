@@ -6,7 +6,10 @@
         @foreach (var c in Model)
         {
             <li>
-                <a href="#">@c.Name</a>
+                <a asp-area="" asp-controller="category" asp-action="index" 
+                   asp-route-id="@c.CategoryId">
+                    @c.Name
+                </a>
                 @Html.Partial("_CategoryMenuListPartial", c.Children)
             </li>
         }

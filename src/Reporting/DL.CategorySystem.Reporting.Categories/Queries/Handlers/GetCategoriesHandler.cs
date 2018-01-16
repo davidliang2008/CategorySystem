@@ -18,21 +18,23 @@ namespace DL.CategorySystem.Reporting.Categories.Queries.Handlers
         protected override IEnumerable<CategoryViewModel> HandleCore(GetCategories query)
         {
             return _dbContext.Categories
-                .Where(x => x.Parent == null)
+                .Where(x => x.Parent == null && x.Visible)
                 .OrderBy(x => x.Ordinal)
                 .Select(Transform);
         }
 
         private CategoryViewModel Transform(Category category)
         {
-            _dbContext.Entry(category).Collection(x => x.Childen).Load();
+            var categoryEntry = _dbContext.Entry(category);
+            categoryEntry.Reference(x => x.Parent).Load();
+            categoryEntry.Collection(x => x.Childen).Load();
 
             return new CategoryViewModel
             {
                 CategoryId = category.CategoryId,
                 Name = category.Name,
-                Slug = category.Slug,
                 Children = category.Childen
+                    .Where(x => x.Visible)
                     .OrderBy(x => x.Ordinal)
                     .Select(Transform)
             };

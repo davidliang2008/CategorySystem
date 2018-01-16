@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Data\DL.CategorySystem.Persistence.EFCore\DL.CategorySystem.Persistence.EFCore.csproj" />
+    <ProjectReference Include="..\..\Framework\DL.CategorySystem.Framework.Mvc\DL.CategorySystem.Framework.Mvc.csproj" />
     <ProjectReference Include="..\..\Reporting\DL.CategorySystem.Reporting.Categories\DL.CategorySystem.Reporting.Categories.csproj" />
   </ItemGroup>
 
